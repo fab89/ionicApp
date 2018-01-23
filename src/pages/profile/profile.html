@@ -1,0 +1,77 @@
+<ion-header>    
+    <ion-navbar *navbar> 
+      <ion-buttons left>
+        <button ion-button icon-only>
+            <ion-icon name="md-person"></ion-icon>
+        </button>
+      </ion-buttons>   
+      <ion-title>Profile</ion-title>    
+      <ion-buttons right>
+        <button ion-button icon-only>
+          <ion-icon name="ios-bulb"></ion-icon>
+        </button>
+        <button ion-button icon-only>
+          <ion-icon name="ios-search"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>    
+  </ion-header>
+
+<ion-content>
+  <!-- header profile -->
+  <div class="headerProfile">
+    <div class="profileHead">
+        <ion-grid>
+          <ion-row align-items-center align="center">
+            <ion-col col-50>
+                <ion-icon ios="ios-call" md="ios-call"></ion-icon>
+            </ion-col>
+            <ion-col col-50 class="imgProfile">
+                <img src="http://images.vogue.it/imgs/galleries/vogue-uomo/news/014141/aws120001-large-285097_0x440.jpg">
+            </ion-col>
+            <ion-col col-50>
+              <ion-icon ios="ios-settings" md="ios-settings"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>  
+    </div>
+  </div>
+  <ion-segment>
+      <ion-segment-button value="profileInfo">
+        Info
+      </ion-segment-button>
+      <ion-segment-button value="profileAbout">
+        About
+      </ion-segment-button>
+    </ion-segment>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+          <ion-icon ios="ios-briefcase" md="ios-briefcase"></ion-icon>
+      </ion-avatar>
+      <h3>Position</h3>
+      <p>Front-End</p>
+    </ion-item>    
+    <ion-item>
+      <ion-avatar item-start>
+          <ion-icon ios="ios-mail" md="ios-mail"></ion-icon>
+      </ion-avatar>
+      <h3>E-Mail</h3>
+      <p>test@test.it</p>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+          <ion-icon ios="ios-pin" md="ios-pin"></ion-icon>
+      </ion-avatar>
+      <h3>Address</h3>
+      <p>Via Test 34t</p>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+          <ion-icon ios="ios-call" md="ios-call"></ion-icon>
+      </ion-avatar>
+      <h3>Phone</h3>
+      <p>+39 123456789</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

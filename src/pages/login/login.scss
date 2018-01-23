@@ -1,0 +1,24 @@
+login-page {
+    ion-content {
+        background: #133163; /* Old browsers */
+        background: -moz-linear-gradient(top, #133163 25%, #205aaa 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #133163 25%,#205aaa 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #133163 25%,#205aaa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#133163', endColorstr='#205aaa',GradientType=0 ); /* IE6-9 */
+    }
+    .h50 {
+        height: 49%;
+    }
+
+    button, .signUp, .signIn {
+        padding: 15px 15px;
+        width: 100%;
+    }
+    .logoLogin {
+        max-width: 70%; 
+        margin: 0 auto;
+        text-align: center;
+        padding:15px;
+        margin-bottom: 20px;
+    }
+}

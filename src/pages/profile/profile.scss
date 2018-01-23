@@ -1,0 +1,39 @@
+page-profile {
+
+    .headerProfile {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#133163+25,205aaa+100 */
+        background: #133163; /* Old browsers */
+        background: -moz-linear-gradient(top, #133163 25%, #205aaa 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #133163 25%,#205aaa 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #133163 25%,#205aaa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#133163', endColorstr='#205aaa',GradientType=0 ); /* IE6-9 */
+        height: 48%;
+    }
+    .headerProfile ion-icon {
+        font-size: 25px;
+        color: #fff;
+    }
+    ion-icon {
+        font-size: 25px;
+    }
+    .profileHead {
+        height: 50%;
+    }
+    .profileHead ion-row {
+        padding-top:60px;
+    }
+    .imgProfile {
+        margin: 0 auto;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        border: rgb(199, 199, 199) 3px solid;
+        border-radius: 50%;
+    }
+    .imgProfile img{
+        display: inline;
+        margin: 0 auto;
+        height: 100%;
+        border-radius: 50%;
+    }
+}
