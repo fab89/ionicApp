@@ -6,6 +6,9 @@ import { Profile } from '../profile/profile';
 import { TabsPage } from '../tabs/tabs';
 import { ToastController } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
+import { HttpClientModule } from '@angular/common/http'; 
+import { HttpModule } from '@angular/http'
+
 
 @Component({
   selector: 'login-page',
@@ -15,16 +18,17 @@ export class loginPage {
 
   @Input() user: User;
 
-  constructor(private navCtrl: NavController, public toastCtrl: ToastController) {
+  constructor(private navCtrl: NavController, public toastCtrl: ToastController, private http: HttpClientModule) {
 
   }
 
   ngOnInit() {
     this.user = new User();
   }
-
+  
   signIn(user){
     if(this.user.email) {
+      this
       const toast = this.toastCtrl.create({
         message: 'Login effettuato correttamente',
         duration: 2500,

@@ -4,8 +4,12 @@ import { IonicApp, IonicModule, IonicErrorHandler, IonicPageModule } from 'ionic
 import { MyApp } from './app.component';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FormGroup } from '@angular/forms';
-import { User } from '../interfaces/user';
 
+/* INTERFACES */
+import { User } from '../interfaces/user';
+import { Post } from '../interfaces/posts';
+
+/* PAGES */
 import { loginPage } from '../pages/login/login';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -20,10 +24,12 @@ import { SignupPage } from '../pages/signup/signup';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http'
 
-
+/* SERVICES */
+import { PostService } from '../services/posts/post.service'; 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { RestProvider } from '../providers/rest/rest';
 
 
 @NgModule({
@@ -38,8 +44,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HeaderController,
     modalSearch,
     loginPage,
-    SignupPage
-    
+    SignupPage,    
 
   ],
   imports: [
@@ -53,8 +58,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
       modalLeave: 'modal-slide-out',
       tabsPlacement: 'bottom',
       pageTransition: 'ios-transition'
-    },
-  )],
+    }),
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -67,8 +72,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HeaderController,
     modalSearch,
     loginPage,
-    SignupPage
-    
+    SignupPage,   
 
   ],
   providers: [
@@ -76,6 +80,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RestProvider,
+    PostService
   ]
 })
 export class AppModule {}
