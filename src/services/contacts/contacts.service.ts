@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 
-export class PostService {
-    private apiUrl = 'http://jsonplaceholder.typicode.com/posts/';
+export class ContactService {
+    private apiUrl = 'http://jsonplaceholder.typicode.com/users';
 
     constructor(private http: HttpClient) {
     }
 
-    getPosts(page) {
-       return this.http.get(this.apiUrl);
+    getContactList(){
+        return this.http.get(this.apiUrl);
     }
 }

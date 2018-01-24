@@ -25,11 +25,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http'
 
 /* SERVICES */
-import { PostService } from '../services/posts/post.service'; 
+import { PostService } from '../services/posts/post.service';
+import { ContactService } from '../services/contacts/contacts.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
+import { ContactDetails } from '../pages/contact/contactDetails/contact-details';
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { RestProvider } from '../providers/rest/rest';
     HeaderController,
     modalSearch,
     loginPage,
-    SignupPage,    
+    SignupPage,
+    ContactDetails   
 
   ],
   imports: [
@@ -71,6 +74,7 @@ import { RestProvider } from '../providers/rest/rest';
     Profile,
     HeaderController,
     modalSearch,
+    ContactDetails,
     loginPage,
     SignupPage,   
 
@@ -81,7 +85,8 @@ import { RestProvider } from '../providers/rest/rest';
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
-    PostService
+    PostService,
+    ContactService,
   ]
 })
 export class AppModule {}
