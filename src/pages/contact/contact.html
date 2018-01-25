@@ -19,6 +19,6 @@
 
 <ion-content>
   <ion-item-group *ngFor="let contact of contacts">
-    <ion-item (click)="getContactDetails()">{{contact.name}}</ion-item>
+    <ion-item (click)="getContactDetails(contact)">{{contact.name}}</ion-item>
   </ion-item-group>
 </ion-content>

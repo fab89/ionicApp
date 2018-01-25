@@ -12,4 +12,9 @@ export class ContactService {
     getContactList(){
         return this.http.get(this.apiUrl);
     }
+
+    getContactId(){
+        return this.http.get('http://jsonplaceholder.typicode.com/users?id=2');
+    }
+
 }
