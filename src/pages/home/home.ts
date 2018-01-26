@@ -7,6 +7,7 @@ import { modalSearch } from '../modalSearch/modalSearch';
 import { IonicPage } from 'ionic-angular/navigation/ionic-page';
 import { PostService } from '../../services/posts/post.service';
 import { Post } from '../../interfaces/posts';
+import { ContactService } from '../../services/contacts/contacts.service';
 
 
 @Component({
@@ -18,9 +19,11 @@ export class HomePage {
   tempPost: any = [];
   badgeCount: number = 10;
   page: number = 10;
+  contacts: any = [];
   limitMax: number = 10;
   limitMin: number = 0;
-  constructor(public navCtrl: NavController, public modalController: ModalController, public postsService: PostService) {
+  homeLayers = 'news';
+  constructor(public navCtrl: NavController, public modalController: ModalController, public postsService: PostService, public contactList: ContactService) {
 
   }
 
@@ -34,6 +37,13 @@ export class HomePage {
         }
         console.log(this.posts)
       }      
+    )
+
+    this.contactList.getContactList().subscribe(
+      response => {
+        this.contacts = response
+        console.log(this.contacts, "amici online")
+      }
     )
   }
 
@@ -54,10 +64,6 @@ export class HomePage {
         this.posts.push(this.tempPost[i])
       }
     }
-    console.log(this.limitMax);
-    console.log(this.limitMin);
-    console.log(this.tempPost.length);
-    console.log('Async operation has ended');
     infiniteScroll.complete();
     }, 500);
     }
