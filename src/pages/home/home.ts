@@ -8,6 +8,8 @@ import { IonicPage } from 'ionic-angular/navigation/ionic-page';
 import { PostService } from '../../services/posts/post.service';
 import { Post } from '../../interfaces/posts';
 import { ContactService } from '../../services/contacts/contacts.service';
+import { HttpClient } from '@angular/common/http';
+import { modalComments } from '../modalComments/modalComments';
 
 
 @Component({
@@ -23,7 +25,8 @@ export class HomePage {
   limitMax: number = 10;
   limitMin: number = 0;
   homeLayers = 'news';
-  constructor(public navCtrl: NavController, public modalController: ModalController, public postsService: PostService, public contactList: ContactService) {
+  comments: any = [];
+  constructor(public navCtrl: NavController, public modalController: ModalController, public postsService: PostService, public contactList: ContactService, public http: HttpClient) {
 
   }
 
@@ -66,6 +69,19 @@ export class HomePage {
     }
     infiniteScroll.complete();
     }, 500);
+    }
+
+    getCommentList(){
+      let getCommentApi = 'http://jsonplaceholder.typicode.com/comments';
+      this.http.get(getCommentApi).subscribe(
+       response => {
+         this.comments = response;
+         console.log(this.comments, 'commenti')
+         let modal: Modal = this.modalController.create(modalComments, {'comments': this.comments});
+         modal.onDidDismiss(comments => {});
+         modal.present();
+       }
+      );
     }
 
 }

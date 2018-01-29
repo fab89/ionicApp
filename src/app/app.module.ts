@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler, IonicPageModule } from 'ionic
 import { MyApp } from './app.component';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FormGroup } from '@angular/forms';
+import { StreamingMedia } from '@ionic-native/streaming-media';
 
 /* INTERFACES */
 import { User } from '../interfaces/user';
@@ -17,7 +18,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { InfoPage } from '../pages/info/info';
 import { Profile } from '../pages/profile/profile';
-import { HeaderController } from '../pages/header/header';
+
 import { modalSearch } from '../pages/modalSearch/modalSearch';
 import { SignupPage } from '../pages/signup/signup';
 
@@ -32,6 +33,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
 import { ContactDetails } from '../pages/contact/contactDetails/contact-details';
+import { modalComments } from '../pages/modalComments/modalComments';
 
 
 @NgModule({
@@ -43,11 +45,12 @@ import { ContactDetails } from '../pages/contact/contactDetails/contact-details'
     InfoPage,
     Profile,    
     TabsPage,
-    HeaderController,
+
     modalSearch,
     loginPage,
     SignupPage,
-    ContactDetails   
+    ContactDetails,
+    modalComments  
 
   ],
   imports: [
@@ -72,9 +75,9 @@ import { ContactDetails } from '../pages/contact/contactDetails/contact-details'
     InfoPage,
     TabsPage,
     Profile,
-    HeaderController,
     modalSearch,
     ContactDetails,
+    modalComments,
     loginPage,
     SignupPage,   
 
@@ -87,6 +90,7 @@ import { ContactDetails } from '../pages/contact/contactDetails/contact-details'
     RestProvider,
     PostService,
     ContactService,
+    StreamingMedia
   ]
 })
 export class AppModule {}
