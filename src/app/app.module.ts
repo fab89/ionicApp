@@ -34,6 +34,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
 import { ContactDetails } from '../pages/contact/contactDetails/contact-details';
 import { modalComments } from '../pages/modalComments/modalComments';
+import { modalCCard } from '../pages/profile/modalCCard/modalCCard';
 
 
 @NgModule({
@@ -45,12 +46,12 @@ import { modalComments } from '../pages/modalComments/modalComments';
     InfoPage,
     Profile,    
     TabsPage,
-
     modalSearch,
     loginPage,
     SignupPage,
     ContactDetails,
-    modalComments  
+    modalComments,
+    modalCCard
 
   ],
   imports: [
@@ -79,7 +80,8 @@ import { modalComments } from '../pages/modalComments/modalComments';
     ContactDetails,
     modalComments,
     loginPage,
-    SignupPage,   
+    SignupPage,
+    modalCCard 
 
   ],
   providers: [

@@ -36,42 +36,67 @@
         </ion-grid>  
     </div>
   </div>
-  <ion-segment>
-      <ion-segment-button value="profileInfo">
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="profileSegment">
+      <ion-segment-button value="info">
         Info
       </ion-segment-button>
-      <ion-segment-button value="profileAbout">
-        About
+      <ion-segment-button value="ccards">
+        Credit Cards
       </ion-segment-button>
     </ion-segment>
-  <ion-list>
-    <ion-item>
-      <ion-avatar item-start>
-          <ion-icon ios="ios-briefcase" md="ios-briefcase"></ion-icon>
-      </ion-avatar>
-      <h3>Position</h3>
-      <p>Front-End</p>
-    </ion-item>    
-    <ion-item>
-      <ion-avatar item-start>
-          <ion-icon ios="ios-mail" md="ios-mail"></ion-icon>
-      </ion-avatar>
-      <h3>E-Mail</h3>
-      <p>test@test.it</p>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start>
-          <ion-icon ios="ios-pin" md="ios-pin"></ion-icon>
-      </ion-avatar>
-      <h3>Address</h3>
-      <p>Via Test 34t</p>
-    </ion-item>
-    <ion-item>
-      <ion-avatar item-start>
-          <ion-icon ios="ios-call" md="ios-call"></ion-icon>
-      </ion-avatar>
-      <h3>Phone</h3>
-      <p>+39 123456789</p>
-    </ion-item>
-  </ion-list>
+  </ion-toolbar>
+  <div [ngSwitch]="profileSegment">
+    <div *ngSwitchCase="'info'">
+      <ion-list>
+        <ion-item>
+          <ion-avatar item-start>
+              <ion-icon ios="ios-briefcase" md="ios-briefcase"></ion-icon>
+          </ion-avatar>
+          <h3>Position</h3>
+          <p>Front-End</p>
+        </ion-item>    
+        <ion-item>
+          <ion-avatar item-start>
+              <ion-icon ios="ios-mail" md="ios-mail"></ion-icon>
+          </ion-avatar>
+          <h3>E-Mail</h3>
+          <p>test@test.it</p>
+        </ion-item>
+        <ion-item>
+          <ion-avatar item-start>
+              <ion-icon ios="ios-pin" md="ios-pin"></ion-icon>
+          </ion-avatar>
+          <h3>Address</h3>
+          <p>Via Test 34t</p>
+        </ion-item>
+        <ion-item>
+          <ion-avatar item-start>
+              <ion-icon ios="ios-call" md="ios-call"></ion-icon>
+          </ion-avatar>
+          <h3>Phone</h3>
+          <p>+39 123456789</p>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'ccards'">
+      <ion-list>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="../../assets/imgs/ccards/mastercard_icon.png">
+          </ion-avatar>
+          <h2>{{card.intestatario}}</h2>
+          <h3>1235....4568</h3>
+          <p>added: 01/01/2018</p>
+          <button item-end ion-button color="danger">
+              <ion-icon name="ios-close"></ion-icon>
+          </button>
+        </ion-item>
+      </ion-list>
+      <div class="addCCard">
+        <button ion-button color="secondary" (click)="modalAddCreditCard()">Add Credit Card</button>
+      </div>
+    </div>
+  </div>
+  
 </ion-content>
