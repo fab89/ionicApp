@@ -91,7 +91,7 @@
           <h2>{{card.intestatario}}</h2>
           <h3>{{card.ncarta}}</h3>
           <p>{{card.dateCard}}</p>
-          <button item-end ion-button color="danger">
+          <button (click)="deleteCCard(card)" item-end ion-button color="danger">
               <ion-icon name="ios-close"></ion-icon>
           </button>
         </ion-item>
