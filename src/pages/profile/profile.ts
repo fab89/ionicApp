@@ -11,20 +11,33 @@ import { CCard } from '../../interfaces/ccard';
 export class Profile {
 
   profileSegment = 'info';
-  card: CCard = new CCard();
-
+  cards = [{
+    intestatario: 'Fabrizio',
+    ncarta: 41111111111,
+    dateCard: '01/02/2020',
+    cardSecureCode: 123,
+    ccType: 'Visa'
+    },
+    {
+      intestatario: 'Fabrizio2',
+      ncarta: 3425555788,
+      dateCard: '01/02/2022',
+      cardSecureCode: 358,
+      ccType: 'American-Express'
+    }]
   constructor(public navCtrl: NavController, public modalCtrl: ModalController ) {
 
   }
 
   ngOnInit() {
-    
+
   }
 
   modalAddCreditCard(){
     let modal = this.modalCtrl.create(modalCCard);
-    modal.onDidDismiss(data => {
-      console.log(data, 'data');
+    modal.onDidDismiss( data => {
+      this.cards.push(data)
+      console.log(this.cards.length, 'data');
     });
     modal.present();
   }

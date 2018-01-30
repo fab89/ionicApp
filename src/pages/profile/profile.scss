@@ -37,10 +37,9 @@ page-profile {
     }
 
     .addCCard{
-        position:fixed;
-        bottom: 50;
         width: 100%;
         color:#03641b;
         text-align: center;
+        z-index: 99;
     }
 }

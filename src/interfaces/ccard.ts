@@ -3,10 +3,12 @@ export class CCard {
     ncarta: number;
     dateCard: string;
     cardSecureCode: number;
+    ccType: string;
     constructor() {
         this.intestatario = '';
-        this.ncarta = 0;
+        this.ncarta = null;
         this.dateCard = '';
-        this.cardSecureCode = 0;
+        this.cardSecureCode = null;
+        this.ccType = '';
     }
 }

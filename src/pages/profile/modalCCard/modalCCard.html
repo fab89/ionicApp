@@ -11,6 +11,14 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
+  <ion-grid [ngSwitch]="ccType">
+    <ion-row align="center">
+      <ion-col *ngSwitchDefault><img src="../../assets/imgs/ccards/iicon_nocolor.png"></ion-col>
+      <ion-col *ngSwitchCase="'Mastercard'"><img src="../../assets/imgs/ccards/mastercard_icon.png"></ion-col>
+      <ion-col *ngSwitchCase="'American-Express'"><img src="../../assets/imgs/ccards/american_express_icon.png"></ion-col>
+      <ion-col *ngSwitchCase="'Visa'"><img src="../../assets/imgs/ccards/visa_icon.png"></ion-col>
+    </ion-row>
+  </ion-grid>
   <ion-grid>
     <ion-row>
         <ion-col class="h50" col-50>
@@ -20,7 +28,7 @@
                 <ion-input name="intestatario" class="form-control" type="text" placeholder="Intestatario" [(ngModel)]="card.intestatario"></ion-input>
               </ion-item>              
               <ion-item>
-                <ion-input name="ncarta" class="form-control" type="number" placeholder="N. Carta" [(ngModel)]="card.ncarta" ></ion-input>
+                <ion-input name="ncarta" class="form-control" type="number" placeholder="XXXX-XXXX-XXXX-XXXX" [(ngModel)]="card.ncarta" (keypress)="CCardsTypeDetector()"></ion-input>
               </ion-item>
               <ion-item>
                 <ion-input name="dateCard" class="form-control" type="date" [(ngModel)]="card.dateCard" ></ion-input>
@@ -29,11 +37,13 @@
                 <ion-input name="cardSecureCode" class="form-control" type="number"  [(ngModel)]="card.cardSecureCode"></ion-input>
               </ion-item>                                                           
             </ion-list>
-            <ion-row >
-              <ion-col>
-                <button align="center" ion-button (click)="saveCCard()">Aggiungi</button>
-              </ion-col>
-            </ion-row>                  
+            <ion-grid>
+              <ion-row >
+                <ion-col align="center">
+                  <button ion-button (click)="saveCCard()">Aggiungi</button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>                  
           </form>
         </ion-col>
     </ion-row>

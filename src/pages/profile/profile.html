@@ -79,15 +79,18 @@
         </ion-item>
       </ion-list>
     </div>
-    <div *ngSwitchCase="'ccards'">
+    <div >
       <ion-list>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="../../assets/imgs/ccards/mastercard_icon.png">
+        <ion-item *ngFor="let card of cards">
+          <ion-avatar [ngSwitch]="card.ccType" item-start>
+            <img *ngSwitchDefault src="../../assets/imgs/ccards/iicon_nocolor.png">
+            <img *ngSwitchCase="'Mastercard'" src="../../assets/imgs/ccards/mastercard_icon.png">
+            <img *ngSwitchCase="'American-Express'" src="../../assets/imgs/ccards/american_express_icon.png">
+            <img *ngSwitchCase="'Visa'" src="../../assets/imgs/ccards/visa_icon.png">
           </ion-avatar>
           <h2>{{card.intestatario}}</h2>
-          <h3>1235....4568</h3>
-          <p>added: 01/01/2018</p>
+          <h3>{{card.ncarta}}</h3>
+          <p>{{card.dateCard}}</p>
           <button item-end ion-button color="danger">
               <ion-icon name="ios-close"></ion-icon>
           </button>
