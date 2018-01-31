@@ -31,7 +31,7 @@ export class loginPage {
       this
       const toast = this.toastCtrl.create({
         message: 'Login effettuato correttamente',
-        duration: 2500,
+        duration: 3500,
         position: 'top',
         dismissOnPageChange: true
       });
@@ -40,7 +40,7 @@ export class loginPage {
     } else {
       const toast = this.toastCtrl.create({
         message: 'Login negato',
-        duration: 2500,
+        duration: 3500,
         position: 'top',
         dismissOnPageChange: true
       });

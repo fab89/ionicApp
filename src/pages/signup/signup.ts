@@ -30,4 +30,8 @@ export class SignupPage {
   signUpForm(){
     
   }
+
+  goBack() {
+    this.navCtrl.pop();
+ }
 }

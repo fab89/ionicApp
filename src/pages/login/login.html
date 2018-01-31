@@ -7,15 +7,15 @@
     </ion-row>
     <ion-row>
         <ion-col class="h50" col-50>
-          <form name="loginForm">
-            <ion-list>                
+          <form name="loginForm">               
               <ion-item>
-                <ion-input name="email" type="text" placeholder="example@email.com" [(ngModel)]="user.email" ></ion-input>
+                <ion-label stacked>EMAIL ADDRESS</ion-label>
+                <ion-input name="email" type="text" [(ngModel)]="user.email" ></ion-input>
               </ion-item>              
               <ion-item>
-                <ion-input name="password" type="password" placeholder="Password" [(ngModel)]="user.password"></ion-input>
+                <ion-label stacked>PASSWORD</ion-label>
+                <ion-input name="password" type="password" [(ngModel)]="user.password"></ion-input>
               </ion-item>              
-            </ion-list>
             <div style="text-align:center">
               <a><p>Hai dimenticato la password?</p></a>
             </div>

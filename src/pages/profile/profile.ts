@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { modalCCard } from './modalCCard/modalCCard';
 import { Modal, ModalController, ModalOptions } from 'ionic-angular';
 import { CCard } from '../../interfaces/ccard';
+import { modalNotifications } from './modalNotifications/modalNotifications';
+
 
 @Component({
   selector: 'page-profile',
@@ -27,7 +29,7 @@ export class Profile {
       cardSecureCode: 358,
       ccType: 'American-Express'
     }]
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController ) {
+  constructor(public NavController: NavController, public modalCtrl: ModalController, public modalNotifications: modalNotifications) {
 
   }
 
@@ -51,4 +53,8 @@ export class Profile {
     console.log(indexCCard, 'carta eliminata')
   }
 
+  showNotifications(){
+    let modal = this.modalCtrl.create(modalNotifications);
+    modal.present();
+  }
 }

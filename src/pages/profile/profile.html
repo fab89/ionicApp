@@ -1,11 +1,11 @@
-<ion-header>  
-    <ion-navbar> 
-        <ion-buttons left>
+<ion-header >
+  <ion-toolbar transparent>
+      <ion-buttons left>
           <button ion-button icon-only>
               <ion-icon name="md-person"></ion-icon>
           </button>
         </ion-buttons>   
-            <ion-title>TESTTTT</ion-title>    
+            <ion-title>Profile</ion-title>    
         <ion-buttons right>
           <button ion-button icon-only>
               <ion-icon name="ios-bulb"></ion-icon>
@@ -13,18 +13,18 @@
           <button ion-button icon-only>
               <ion-icon name="ios-search"></ion-icon>
           </button>
-        </ion-buttons>
-      </ion-navbar>  
+        </ion-buttons>  
+    </ion-toolbar>
 </ion-header>
 
-<ion-content class="has-header">
+<ion-content>
   <!-- header profile -->
   <div class="headerProfile">
     <div class="profileHead">
         <ion-grid>
           <ion-row align-items-center align="center">
             <ion-col col-50>
-                <ion-icon ios="ios-call" md="ios-call"></ion-icon>
+                <ion-icon (click)="showNotifications()" ios="ios-notifications" md="ios-notifications"><ion-badge item-end color="danger">2</ion-badge></ion-icon>
             </ion-col>
             <ion-col col-50 class="imgProfile">
                 <img src="http://images.vogue.it/imgs/galleries/vogue-uomo/news/014141/aws120001-large-285097_0x440.jpg">
@@ -34,6 +34,16 @@
             </ion-col>
           </ion-row>
         </ion-grid>  
+    </div>
+    <div class="socialInfo">
+      <ion-row justify-content-end>
+        <ion-col>
+            <p>Follower<br><b>30</b></p>
+        </ion-col>
+        <ion-col>
+            <p>Friends<br> <b>150</b></p>
+        </ion-col>
+      </ion-row>
     </div>
   </div>
   <ion-toolbar>
@@ -46,7 +56,7 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-  <div [ngSwitch]="profileSegment">
+  <div class="contentLists" [ngSwitch]="profileSegment">
     <div *ngSwitchCase="'info'">
       <ion-list>
         <ion-item>
@@ -79,7 +89,7 @@
         </ion-item>
       </ion-list>
     </div>
-    <div >
+    <div *ngSwitchCase="'ccards'">
       <ion-list>
         <ion-item *ngFor="let card of cards">
           <ion-avatar [ngSwitch]="card.ccType" item-start>

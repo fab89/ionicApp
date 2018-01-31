@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler, IonicPageModule } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, IonicPageModule, } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FormGroup } from '@angular/forms';
@@ -35,6 +35,7 @@ import { RestProvider } from '../providers/rest/rest';
 import { ContactDetails } from '../pages/contact/contactDetails/contact-details';
 import { modalComments } from '../pages/modalComments/modalComments';
 import { modalCCard } from '../pages/profile/modalCCard/modalCCard';
+import { modalNotifications } from '../pages/profile/modalNotifications/modalNotifications';
 
 
 @NgModule({
@@ -51,20 +52,22 @@ import { modalCCard } from '../pages/profile/modalCCard/modalCCard';
     SignupPage,
     ContactDetails,
     modalComments,
-    modalCCard
-
+    modalCCard,
+    modalNotifications
+    
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp, {
-      backButtonText: 'Back',
+      backButtonText: '',
       iconMode: 'ios',
       modalEnter: 'modal-slide-in',
       modalLeave: 'modal-slide-out',
       tabsPlacement: 'bottom',
-      pageTransition: 'ios-transition'
+      pageTransition: 'ios-transition',
+      loadingEnter: "loading-pop-in"
     }),
   ],
   bootstrap: [IonicApp],
@@ -81,7 +84,8 @@ import { modalCCard } from '../pages/profile/modalCCard/modalCCard';
     modalComments,
     loginPage,
     SignupPage,
-    modalCCard 
+    modalCCard,
+    modalNotifications     
 
   ],
   providers: [
@@ -92,7 +96,8 @@ import { modalCCard } from '../pages/profile/modalCCard/modalCCard';
     RestProvider,
     PostService,
     ContactService,
-    StreamingMedia
+    StreamingMedia,
+    modalNotifications
   ]
 })
 export class AppModule {}

@@ -10,6 +10,7 @@ import { Post } from '../../interfaces/posts';
 import { ContactService } from '../../services/contacts/contacts.service';
 import { HttpClient } from '@angular/common/http';
 import { modalComments } from '../modalComments/modalComments';
+import { MenuController } from 'ionic-angular/components/app/menu-controller';
 
 
 @Component({
@@ -26,8 +27,14 @@ export class HomePage {
   limitMin: number = 0;
   homeLayers = 'news';
   comments: any = [];
-  constructor(public navCtrl: NavController, public modalController: ModalController, public postsService: PostService, public contactList: ContactService, public http: HttpClient) {
 
+  constructor(public navCtrl: NavController, 
+    public modalController: ModalController, 
+    public postsService: PostService, 
+    public contactList: ContactService, 
+    public http: HttpClient,
+    public menu: MenuController) {
+    menu.enable(true);
   }
 
   ngOnInit() {

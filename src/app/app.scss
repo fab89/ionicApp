@@ -17,12 +17,25 @@
 ion-title {
     text-align: center;
 }
-ion-navbar {
-    background-color: #151d31;
-    color: #fff;
-}
+
 ion-note {
     font-size: 12px;
     align-self: flex-start;
     margin-top: 14px;
 }
+
+.width50 {
+    width: 50%;
+}
+.separator20 {
+    margin-top: 20px;
+}
+
+$color: (
+    primary:    #488aff,
+    secondary:  #32db64,
+    danger:     #f53d3d,
+    light:      #f3f3f3,
+    wwhite: #ffffff,
+    dark:       #222,
+  );
