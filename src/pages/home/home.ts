@@ -20,7 +20,7 @@ import { MenuController } from 'ionic-angular/components/app/menu-controller';
 export class HomePage {
   posts: any = [];
   tempPost: any = [];
-  badgeCount: number = 10;
+  public badgeCount: number = 0;
   page: number = 10;
   contacts: any = [];
   limitMax: number = 10;
@@ -89,6 +89,11 @@ export class HomePage {
          modal.present();
        }
       );
+    }
+
+    getLike(e){
+      this.badgeCount++
+      console.log(this.badgeCount)
     }
 
 }

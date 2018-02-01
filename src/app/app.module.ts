@@ -35,7 +35,8 @@ import { RestProvider } from '../providers/rest/rest';
 import { ContactDetails } from '../pages/contact/contactDetails/contact-details';
 import { modalComments } from '../pages/modalComments/modalComments';
 import { modalCCard } from '../pages/profile/modalCCard/modalCCard';
-import { modalNotifications } from '../pages/profile/modalNotifications/modalNotifications';
+import { notificationPage } from '../pages/profile/notifications/notifications';
+
 
 
 @NgModule({
@@ -53,8 +54,7 @@ import { modalNotifications } from '../pages/profile/modalNotifications/modalNot
     ContactDetails,
     modalComments,
     modalCCard,
-    modalNotifications
-    
+    notificationPage    
   ],
   imports: [
     BrowserModule,
@@ -84,9 +84,8 @@ import { modalNotifications } from '../pages/profile/modalNotifications/modalNot
     modalComments,
     loginPage,
     SignupPage,
-    modalCCard,
-    modalNotifications     
-
+    modalCCard,  
+    notificationPage
   ],
   providers: [
     StatusBar,
@@ -96,8 +95,7 @@ import { modalNotifications } from '../pages/profile/modalNotifications/modalNot
     RestProvider,
     PostService,
     ContactService,
-    StreamingMedia,
-    modalNotifications
+    StreamingMedia
   ]
 })
 export class AppModule {}

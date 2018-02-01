@@ -3,7 +3,8 @@ import { NavController } from 'ionic-angular';
 import { modalCCard } from './modalCCard/modalCCard';
 import { Modal, ModalController, ModalOptions } from 'ionic-angular';
 import { CCard } from '../../interfaces/ccard';
-import { modalNotifications } from './modalNotifications/modalNotifications';
+import { notificationPage } from './notifications/notifications';
+
 
 
 @Component({
@@ -29,7 +30,7 @@ export class Profile {
       cardSecureCode: 358,
       ccType: 'American-Express'
     }]
-  constructor(public NavController: NavController, public modalCtrl: ModalController, public modalNotifications: modalNotifications) {
+  constructor(public NavController: NavController, public modalCtrl: ModalController) {
 
   }
 
@@ -40,9 +41,11 @@ export class Profile {
   modalAddCreditCard(cards: CCard){
     let modal = this.modalCtrl.create(modalCCard);
     modal.onDidDismiss( data => {
-      data.id = this.cards.length +1;
-      this.cards.push(data)
-      console.log(data.id, 'data');
+      if (data != null){
+        data.id = this.cards.length +1;
+        this.cards.push(data)
+        console.log(data.id, 'data');
+      }
     });
     modal.present();
   }
@@ -54,7 +57,6 @@ export class Profile {
   }
 
   showNotifications(){
-    let modal = this.modalCtrl.create(modalNotifications);
-    modal.present();
+    this.NavController.push(notificationPage)
   }
 }
