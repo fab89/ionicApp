@@ -1,82 +1,83 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { Platform, ActionSheetController } from 'ionic-angular';
-import { Camera } from '@ionic-native/camera';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { NavController, Platform } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+declare var google;
 
 @Component({
-  selector: 'page-info',
+  selector: 'info-page',
   templateUrl: 'info.html'
 })
 export class InfoPage {
 
-  constructor( 
-		public navCtrl: NavController, 
-		public actionSheetCtrl: ActionSheetController,
-    public platform: Platform,
-    public camera: Camera,
-	) {
+  @ViewChild('map') mapElement: ElementRef;
+  map: any;
+  start = 'chicago, il';
+  end = 'chicago, il';
+  directionsService = new google.maps.DirectionsService;
+  directionsDisplay = new google.maps.DirectionsRenderer;
+  markers = [];
+  constructor(public navCtrl: NavController, public platform: Platform, private geolocation: Geolocation) {
 
+  }
+
+  ionViewDidLoad(){
+    this.initMap();
+  }
+
+  initMap() {
+    this.geolocation.getCurrentPosition({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }).then((resp) => {
+      let mylocation = new google.maps.LatLng(resp.coords.latitude,resp.coords.longitude);
+      this.map = new google.maps.Map(this.mapElement.nativeElement, {
+        zoom: 15,
+        center: mylocation
+      });
+    });
+    let watch = this.geolocation.watchPosition();
+    watch.subscribe((data) => {
+      this.deleteMarkers();
+      let updatelocation = new google.maps.LatLng(data.coords.latitude,data.coords.longitude);
+      let image = 'assets/imgs/blue-bike.png';
+      this.addMarker(updatelocation,image);
+      this.setMapOnAll(this.map);
+    });
+  }
+
+  addMarker(location, image) {
+    let marker = new google.maps.Marker({
+      position: location,
+      map: this.map,
+      icon: image
+    });
+    this.markers.push(marker);
   }
   
+  setMapOnAll(map) {
+    for (var i = 0; i < this.markers.length; i++) {
+      this.markers[i].setMap(map);
+    }
+  }
+  
+  clearMarkers() {
+    this.setMapOnAll(null);
+  }
+  
+  deleteMarkers() {
+    this.clearMarkers();
+    this.markers = [];
+  }
 
-  takePicture(){
-    this.camera.getPicture({
-        destinationType: this.camera.DestinationType.DATA_URL,
-        targetWidth: 1000,
-        targetHeight: 1000
-    }).then((imageData) => {
-      // imageData is a base64 encoded string
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
-      console.log('tutto ok');
-    }, (err) => {
-        console.log(err);
+  calculateAndDisplayRoute() {
+    this.directionsService.route({
+      origin: this.start,
+      destination: this.end,
+      travelMode: 'DRIVING'
+    }, (response, status) => {
+      if (status === 'OK') {
+        this.directionsDisplay.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
     });
   }
 
-
-  presentActionSheet() {
-    let actionSheet = this.actionSheetCtrl.create({
-			title: 'Modify your album',
-			buttons: [
-        {
-          text: 'Delete',
-          role: 'destructive',
-          icon: !this.platform.is('ios') ? 'trash' : null,
-          handler: () => {
-            console.log('Delete clicked');
-          }
-        },
-        {
-          text: 'Share',
-          icon: !this.platform.is('ios') ? 'share' : null,
-          handler: () => {
-            console.log('Share clicked');
-          }
-        },
-        {
-          text: 'Play',
-          icon: !this.platform.is('ios') ? 'arrow-dropright-circle' : null,
-          handler: () => {
-						console.log('Play clicked');
-          }
-        },
-        {
-          text: 'Favorite',
-          icon: !this.platform.is('ios') ? 'heart-outline' : null,
-          handler: () => {
-            console.log('Favorite clicked');
-          }
-        },
-        {
-          text: 'Cancel',
-          role: 'cancel', // will always sort to be on the bottom
-          icon: !this.platform.is('ios') ? 'close' : null,
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    actionSheet.present();
-  }
 }

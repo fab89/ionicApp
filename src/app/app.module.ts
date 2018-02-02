@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler, IonicPageModule, } from 'ioni
 import { MyApp } from './app.component';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FormGroup } from '@angular/forms';
-import { StreamingMedia } from '@ionic-native/streaming-media';
+import { Geolocation } from '@ionic-native/geolocation';
 
 /* INTERFACES */
 import { User } from '../interfaces/user';
@@ -94,8 +94,8 @@ import { notificationPage } from '../pages/profile/notifications/notifications';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
     PostService,
+    Geolocation,
     ContactService,
-    StreamingMedia
   ]
 })
 export class AppModule {}
