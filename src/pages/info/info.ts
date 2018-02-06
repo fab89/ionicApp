@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
-declare var google;
+declare var google:any;
 
 @Component({
   selector: 'info-page',
@@ -17,10 +17,6 @@ export class InfoPage {
   directionsDisplay = new google.maps.DirectionsRenderer;
   markers = [];
   constructor(public navCtrl: NavController, public platform: Platform, private geolocation: Geolocation) {
-
-  }
-
-  ionViewDidLoad(){
     this.initMap();
   }
 
@@ -36,7 +32,7 @@ export class InfoPage {
     watch.subscribe((data) => {
       this.deleteMarkers();
       let updatelocation = new google.maps.LatLng(data.coords.latitude,data.coords.longitude);
-      let image = 'assets/imgs/blue-bike.png';
+      let image = 'assets/imgs/pointerMap.png';
       this.addMarker(updatelocation,image);
       this.setMapOnAll(this.map);
     });

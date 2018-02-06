@@ -1,8 +1,8 @@
 <ion-header >
   <ion-toolbar transparent>
       <ion-buttons left>
-          <button ion-button icon-only>
-              <ion-icon name="md-person"></ion-icon>
+          <button ion-button icon-only (click)="logOut()">
+              <ion-icon name="ios-power"></ion-icon>
           </button>
         </ion-buttons>   
             <ion-title>Profile</ion-title>    
@@ -27,7 +27,7 @@
                 <ion-icon ios="ios-notifications" md="ios-notifications"><ion-badge item-end color="danger">2</ion-badge></ion-icon>
             </ion-col>
             <ion-col col-50 class="imgProfile">
-                <img src="http://images.vogue.it/imgs/galleries/vogue-uomo/news/014141/aws120001-large-285097_0x440.jpg">
+                <img src="assets/imgs/ccards/imageProfile.jpg">
             </ion-col>
             <ion-col col-50>
               <ion-icon ios="ios-settings" md="ios-settings"></ion-icon>
@@ -93,10 +93,10 @@
       <ion-list>
         <ion-item *ngFor="let card of cards">
           <ion-avatar [ngSwitch]="card.ccType" item-start>
-            <img *ngSwitchDefault src="../../assets/imgs/ccards/iicon_nocolor.png">
-            <img *ngSwitchCase="'Mastercard'" src="../../assets/imgs/ccards/mastercard_icon.png">
-            <img *ngSwitchCase="'American-Express'" src="../../assets/imgs/ccards/american_express_icon.png">
-            <img *ngSwitchCase="'Visa'" src="../../assets/imgs/ccards/visa_icon.png">
+            <img *ngSwitchDefault src="assets/imgs/ccards/iicon_nocolor.png">
+            <img *ngSwitchCase="'Mastercard'" src="assets/imgs/ccards/mastercard_icon.png">
+            <img *ngSwitchCase="'American-Express'" src="assets/imgs/ccards/american_express_icon.png">
+            <img *ngSwitchCase="'Visa'" src="assets/imgs/ccards/visa_icon.png">
           </ion-avatar>
           <h2>{{card.intestatario}}</h2>
           <h3>{{card.ncarta}}</h3>

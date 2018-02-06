@@ -10,11 +10,12 @@ import { HomePage } from '../pages/home/home';
 import * as firebase from 'firebase';
 
 const config = {
-  apiKey: 'AIzaSyArCmv_-fSrM7MbzJZzSZxqJS5hN1kqwUo',
-  authDomain: 'ionic-location.firebaseapp.com',
-  databaseURL: 'https://ionic-location.firebaseio.com/',
-  projectId: 'ionic-location',
-  storageBucket: 'gs://ionic-location.appspot.com',
+  apiKey: "AIzaSyArCmv_-fSrM7MbzJZzSZxqJS5hN1kqwUo",
+  authDomain: "ionic-location.firebaseapp.com",
+  databaseURL: "https://ionic-location.firebaseio.com",
+  projectId: "ionic-location",
+  storageBucket: "ionic-location.appspot.com",
+  messagingSenderId: "69639215774"
 };
 
 @Component({

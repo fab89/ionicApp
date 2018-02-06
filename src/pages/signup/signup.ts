@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../../interfaces/user';
+import  firebase  from 'firebase';
 
 /**
  * Generated class for the SignupPage page.
@@ -9,14 +10,13 @@ import { User } from '../../interfaces/user';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
 })
 export class SignupPage {
 
-  @Input() user: User;
+  user: User;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -28,7 +28,11 @@ export class SignupPage {
   }
 
   signUpForm(){
-    
+    return firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password)
+    .then(response => {
+      firebase.database().ref('/userProfile').child(response.uid)
+      .set({user: this.user})
+    })
   }
 
   goBack() {

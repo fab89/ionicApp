@@ -22,7 +22,7 @@ export class ContactPage {
       response => {
         this.contacts = response
         console.log(this.contacts)
-      }
+      } 
     )
   }
 

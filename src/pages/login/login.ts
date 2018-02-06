@@ -7,8 +7,8 @@ import { TabsPage } from '../tabs/tabs';
 import { ToastController } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { HttpClientModule } from '@angular/common/http'; 
-import { HttpModule } from '@angular/http'
-
+import { HttpModule } from '@angular/http';
+import firebase from 'firebase';
 
 @Component({
   selector: 'login-page',
@@ -18,17 +18,17 @@ export class loginPage {
 
   @Input() user: User;
 
-  constructor(private navCtrl: NavController, public toastCtrl: ToastController, private http: HttpClientModule) {
-
-  }
+  constructor(private navCtrl: NavController, 
+    public toastCtrl: ToastController, 
+    private http: HttpClientModule) { }
 
   ngOnInit() {
     this.user = new User();
-  }
+  } 
   
   signIn(user){
-    if(this.user.email) {
-      this
+    firebase.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
+    .then(response => {
       const toast = this.toastCtrl.create({
         message: 'Login effettuato correttamente',
         duration: 3500,
@@ -37,17 +37,17 @@ export class loginPage {
       });
       toast.present();
       this.navCtrl.push(TabsPage);
-    } else {
-      const toast = this.toastCtrl.create({
+    }, error => {
+            const toast = this.toastCtrl.create({
         message: 'Login negato',
         duration: 3500,
         position: 'top',
         dismissOnPageChange: true
       });
       toast.present();
-    }
-    console.log(this.user) 
-  }
+      console.log(error)
+    })
+  } 
 
   signUp(){
     this.navCtrl.push(SignupPage);
