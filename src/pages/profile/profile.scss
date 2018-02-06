@@ -1,11 +1,14 @@
 page-profile {
     .headerProfile {
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#133163+25,205aaa+100 */
-background: #133163; /* Old browsers */
-background: -moz-linear-gradient(343deg,#4c68b1,black 98%); /* FF3.6-15 */
-background: -webkit-linear-gradient(343deg,#4c68b1,black 98%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(343deg,#4c68b1,black 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c68b1', endColorstr='#000',GradientType=0 ); /* IE6-9 */
+        background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBNX6V3_XBSPtTejIJKm3o93Owz9vvFKBQek8Y5DVSsnRL0CHk7A');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+/*      
+background: -moz-linear-gradient(343deg,#4c68b1,black 98%); 
+background: -webkit-linear-gradient(343deg,#4c68b1,black 98%); 
+background: linear-gradient(343deg,#4c68b1,black 98%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c68b1', endColorstr='#000',GradientType=0 ); */
 height: 48%;
     }
 
@@ -15,6 +18,7 @@ height: 48%;
     }
     ion-icon {
         font-size: 25px;
+        color: "default";
     }
     .profileHead {
         height: 50%;
@@ -48,5 +52,16 @@ height: 48%;
         margin-top:35px;
         text-align: center;
         color: #fff;
+        padding:10px;
+        background: -moz-linear-gradient(top, rgba(30,87,153,0) 0%, rgba(67,103,132,1) 92%, rgba(70,104,130,1) 100%);
+        background: -webkit-linear-gradient(top, rgba(30,87,153,0) 0%,rgba(67,103,132,1) 92%,rgba(70,104,130,1) 100%);
+        background: linear-gradient(to bottom, rgba(30,87,153,0) 0%,rgba(67,103,132,1) 92%,rgba(70,104,130,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e5799', endColorstr='#466882',GradientType=0 );
+    }
+
+    .editImageProfile{
+        position:relative;
+        top:50px;
+        z-index: 99;
     }
 }

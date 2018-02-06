@@ -8,6 +8,7 @@ import firebase from 'firebase';
 import { loginPage } from '../login/login';
 import { ToastController } from 'ionic-angular';
 import { App } from 'ionic-angular/components/app/app';
+import { Camera } from '@ionic-native/camera';
 
 
 @Component({
@@ -35,7 +36,7 @@ export class Profile {
   constructor(public navCtrl: NavController, 
     public modalCtrl: ModalController, 
     public toastCtrl: ToastController,
-    public app: App) {
+    public app: App,) {
 
   }
 

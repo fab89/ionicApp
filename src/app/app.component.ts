@@ -8,6 +8,7 @@ import { loginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 
 import * as firebase from 'firebase';
+import { Profile } from '../pages/profile/profile';
 
 const config = {
   apiKey: "AIzaSyArCmv_-fSrM7MbzJZzSZxqJS5hN1kqwUo",

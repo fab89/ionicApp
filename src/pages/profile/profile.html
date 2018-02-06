@@ -7,11 +7,11 @@
         </ion-buttons>   
             <ion-title>Profile</ion-title>    
         <ion-buttons right>
-          <button ion-button icon-only>
-              <ion-icon name="ios-bulb"></ion-icon>
+          <button ion-button icon-only  (click)="showNotifications()" >
+              <ion-icon ios="ios-notifications" md="ios-notifications"><ion-badge item-end color="danger">2</ion-badge></ion-icon>
           </button>
           <button ion-button icon-only>
-              <ion-icon name="ios-search"></ion-icon>
+              <ion-icon ios="ios-settings" md="ios-settings"></ion-icon>
           </button>
         </ion-buttons>  
     </ion-toolbar>
@@ -19,21 +19,9 @@
 
 <ion-content>
   <!-- header profile -->
-  <div class="headerProfile">
+  <div class="headerProfile" id="imgHeaderProfile">
     <div class="profileHead">
-        <ion-grid>
-          <ion-row align-items-center align="center">
-            <ion-col (click)="showNotifications()" col-50>
-                <ion-icon ios="ios-notifications" md="ios-notifications"><ion-badge item-end color="danger">2</ion-badge></ion-icon>
-            </ion-col>
-            <ion-col col-50 class="imgProfile">
-                <img src="assets/imgs/ccards/imageProfile.jpg">
-            </ion-col>
-            <ion-col col-50>
-              <ion-icon ios="ios-settings" md="ios-settings"></ion-icon>
-            </ion-col>
-          </ion-row>
-        </ion-grid>  
+        
     </div>
     <div class="socialInfo">
       <ion-row justify-content-end>
